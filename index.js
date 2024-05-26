@@ -29,6 +29,10 @@ dotenv.config({
   path: "./.env",
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 const PORT = process.env.PORT || 6000;
 dbConnect();
 app.use(morgan("dev"));
