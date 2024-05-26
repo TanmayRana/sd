@@ -1,7 +1,8 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const dbConnect = require("./config/dbConnect");
-const { notFound, errorHandler } = require("./middlewares/errorHandler");
+// const { notFound, errorHandler } = require("./middlewares/errorHandler");
+const { errorHandler } = require("./middlewares/errorHandler");
 const app = express();
 const dotenv = require("dotenv");
 const path = require("path");
@@ -47,7 +48,7 @@ app.use("/api/enquiry", enqRouter);
 app.use("/api/upload", uploadRouter);
 app.use("/public/images", express.static("/public/images"));
 
-app.use(notFound);
+// app.use(notFound);
 app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Server is running  at PORT ${PORT}`);
